@@ -26,8 +26,8 @@ app.listen(port, () => {
 });
 
 //Obtengo todo el listado 
-app.get("/animals", async (req, res) => {
-    let query = "SELECT * FROM animals";
+app.get("/animales", async (req, res) => {
+    let query = "SELECT * FROM animales";
     const conn = await getConnection();
     const [results] = await conn.query(query);
     const numOfElements = results.length;
@@ -39,10 +39,10 @@ app.get("/animals", async (req, res) => {
 });
 
 //Inserto una entrada en mi unica entidad
-app.post("/animals", async (req, res) => {
+app.post("/animales", async (req, res) => {
     const dataAnimal = req.body; //objeto
     const { idAnimal, nombre, raza, edad, tipo } = dataAnimal;
-    let sql = "INSERT INTO animals(idAnimal, nombre, raza, edad, tipo) VALUES (?, ?, ?, ?, ?);";
+    let sql = "INSERT INTO animales(idAnimal, nombre, raza, edad, tipo) VALUES (?, ?, ?, ?, ?);";
     try {
         const conn = await getConnection();
         const [results] = await conn.query(sql, [
@@ -73,11 +73,11 @@ app.post("/animals", async (req, res) => {
     }
 });
 //Actualizo una entrada
-app.put("/animals/:id", async (req, res) => {
+app.put("/animales/:id", async (req, res) => {
     const dataAnimal = req.body; //objeto
     const { nombre, raza, edad, tipo } = dataAnimal;
     const animalId = req.params.id;
-    let sql = "UPDATE animals SET nombre=?, raza=?, edad=?, tipo=? WHERE idAnimal= ?;";
+    let sql = "UPDATE animales SET nombre=?, raza=?, edad=?, tipo=? WHERE idAnimal= ?;";
     const conn = await getConnection();
     const [results] = await conn.query(sql, [
         nombre, 
@@ -94,9 +94,9 @@ app.put("/animals/:id", async (req, res) => {
   });
 
   // Elimino una entrada 
-  app.delete("/animals/:id", async (req, res) => {
+  app.delete("/animales/:id", async (req, res) => {
     const animalId = req.params.id;
-    let sql = "DELETE FROM animals WHERE idAnimal= ? ";
+    let sql = "DELETE FROM animales WHERE idAnimal= ? ";
     const conn = await getConnection();
     const [results] = await conn.query(sql, [animalId]);
     res.json({

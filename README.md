@@ -7,7 +7,7 @@
 - Albergue✔️
 ### Crea la tabla o tablas correspondientes a la base de datos:
 - Animales✔️
-### Implementa las rutas necesarias para manejar las siguientes operaciones:
+### Implementa los endpoints necesarios para manejar las siguientes operaciones:
 - Leer / Listar todas las entradas existentes.✔️
 - Insertar una entrada en su entidad principal.✔️
 - Actualizar una entrada existente.✔️

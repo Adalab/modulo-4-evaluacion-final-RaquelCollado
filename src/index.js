@@ -11,8 +11,8 @@ app.use(express.json());
 
 async function getConnection() {
     const connection = await mysql.createConnection({
-        host: "localhost",
-        user: "root",
+        host: process.env.HOST,
+        user: process.env.USER,
         password: process.env.PASS,
         database: process.env.DB,
     });

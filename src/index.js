@@ -3,7 +3,6 @@ const cors = require("cors");
 const mysql = require("mysql2/promise");
 
 require("dotenv").config();
-//console.log("Variables de entorno OK");
 const app = express();
 
 app.use(cors());
@@ -69,7 +68,6 @@ app.post("/animales", async (req, res) => {
             success: false,
             message: `Ha ocurrido un error${error}`,
         });
-        conn.end();
     }
 });
 //Actualizo una entrada
